@@ -1,9 +1,15 @@
+# ***
+# Discord Test Task
+# Used Selenium in order to fill registration form. Unfortunately didn't manage to solve issue with captcha.
+# After captcha phase, there is landing page that requires phone number confirmation.
+
 import requests
 from selenium import webdriver
 import time
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from password_gen import generate_random_password
+
 
 print('*' * 100)
 print('Enter email:')
@@ -39,8 +45,12 @@ nextButton = browser.find_element(
 )
 nextButton.click()
 
-# https://discord.com/channels/@me
+# Time to solve captcha manually
 time.sleep(30)
+
+
+# Tested on my own discord account following code. Successfully obtained token.
+# [captcha_required] error occurs
 
 payload = {
     'login': type_email,
